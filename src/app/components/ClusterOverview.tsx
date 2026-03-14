@@ -134,7 +134,7 @@ export function ClusterOverview({ clusters, signals }: Props) {
                   <div className="text-xs font-semibold text-text-muted">Sample signals (from the dataset)</div>
                   <ul className="mt-2 space-y-2 text-sm text-text-primary">
                     {signalItems.length ? (
-                      signalItems.map((signal) => (
+                      signalItems.filter((s): s is NonNullable<typeof s> => s != null).map((signal) => (
                         <li key={signal.id} className="rounded-lg bg-black/30 p-3">
                           <div className="font-semibold">{signal.source}</div>
                           <div className="mt-1 text-xs text-text-muted">{signal.date}</div>
